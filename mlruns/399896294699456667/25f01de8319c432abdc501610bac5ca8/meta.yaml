@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Mohit%20Sharma/OneDrive/Desktop/ml_ops/mlruns/399896294699456667/25f01de8319c432abdc501610bac5ca8/artifacts
+end_time: 1731394407055
+entry_point_name: ''
+experiment_id: '399896294699456667'
+lifecycle_stage: active
+run_id: 25f01de8319c432abdc501610bac5ca8
+run_name: LogisticRegression
+run_uuid: 25f01de8319c432abdc501610bac5ca8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1731394394049
+status: 3
+tags: []
+user_id: Mohit Sharma

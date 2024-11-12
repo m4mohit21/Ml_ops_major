@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Mohit%20Sharma/OneDrive/Desktop/ml_ops/mlruns/399896294699456667/17fd76711dff40a1b2167641ad654239/artifacts
+end_time: 1731394413288
+entry_point_name: ''
+experiment_id: '399896294699456667'
+lifecycle_stage: active
+run_id: 17fd76711dff40a1b2167641ad654239
+run_name: RandomForest
+run_uuid: 17fd76711dff40a1b2167641ad654239
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1731394407055
+status: 3
+tags: []
+user_id: Mohit Sharma

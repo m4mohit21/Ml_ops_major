@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  # MLflow Tracking Server
+  mlflow-server:
+    image: python:3.11-slim
+    command: mlflow server --host 0.0.0.0 --port 5000 --backend-store-uri sqlite:///mlflow.db --default-artifact-root /mnt/artifacts
+    ports:
+      - "5000:5000"  # Expose the MLflow UI on port 5000
+    volumes:
+      - mlflow-artifacts:/mnt/artifacts  # Mount volume for model artifacts
+      - ./mlflow:/mnt/mlflow  # Mount for tracking data
+    environment:
+      - MLFLOW_TRACKING_URI=http://mlflow-server:5000
+    networks:
+      - mlflow-network
+
+  # Your ML Application (using the Dockerfile you created)
+  iris-app:
+    build: .
+    environment:
+      - MLFLOW_TRACKING_URI=http://mlflow-server:5000  # Connect to MLflow server
+    depends_on:
+      - mlflow-server  # Ensure MLflow server is started before the app
+    volumes:
+      - ./models:/app/models  # Mount the models directory
+    networks:
+      - mlflow-network
+    ports:
+      - "5001:5001"  # If your app exposes any ports for API or interaction
+  
+networks:
+  mlflow-network:
+    driver: bridge
+
+volumes:
+  mlflow-artifacts:
+    driver: local
